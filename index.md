@@ -1,6 +1,6 @@
 # Szrafowanie
 
-Metodami szrafowania zajmowałem się w ramach tworzenia pracy magisterskiej pt. „_Algorytm szrafowania w przestrzeni obrazu zachowujący spójność czasową_” TODO link. Zaimplementowałem sześć istniejących rozwiązań z artykułów naukowych oraz dwie nowe metody. Sposoby szrafowania w zautomatyzowany sposób porównywałem pod względem spójności czasowej tworzonej animacji oraz wydajności. 
+Metodami szrafowania zajmowałem się w ramach tworzenia pracy magisterskiej pt. [„_Algorytm szrafowania w przestrzeni obrazu zachowujący spójność czasową_”](https://github.com/defacto2k15/defacto2k15.github.io/blob/master/assets/pdf/Czerwi%C5%84skiPracaMagisterska2019.pdf). Zaimplementowałem sześć istniejących rozwiązań z artykułów naukowych oraz dwie nowe metody. Sposoby szrafowania w zautomatyzowany sposób porównywałem pod względem spójności czasowej tworzonej animacji oraz wydajności. 
 
 Projekt Unity zawarty w [repozytorium](https://github.com/defacto2k15/PwMgr) zawiera wszelkie zasoby oraz kod pozwalający na własnoręcznie uruchomienie sceny wykorzystującej szrafowanie dowolnym rozwiązaniem. 
 Każda metoda ma  przypisany skrót wykorzystywany w nazwach klas i nazwach shaderów do danego sposobu szrafowania przypisanych.
