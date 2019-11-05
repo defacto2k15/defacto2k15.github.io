@@ -21,18 +21,6 @@ W projektach występuje ruchoma kamera. Kontrolować można ją za pomocą
   - **Y** i **T** – Składowa Roll obrotu kamery  
 
 
-            <video
-                id="gif-mp4"
-                poster="https://media.giphy.com/media/cjKwheOfSEGdsw0gEV/200_s.gif"
-                style="margin:0;padding:0"
-                width="480"
-                height="270"
-                autoplay
-                loop>
-                <source src="https://media.giphy.com/media/cjKwheOfSEGdsw0gEV/giphy.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'></source>
-                <img src="https://media.giphy.com/media/cjKwheOfSEGdsw0gEV/giphy.gif" title="Your browser does not support the mp4 video codec." />
-            </video>
-
 # Zaimplementowane metody
 ## Tam - Mapy tonalne
   - Projekt [mf-tam](https://github.com/defacto2k15/PwMgr/blob/master/Assets/Projects/mf/mf-tam.unity)
@@ -41,6 +29,7 @@ W projektach występuje ruchoma kamera. Kontrolować można ją za pomocą
 Utworzone na podstawie pracy _E. Praun, H. Hoppe, M. Webb i A. Finkelstein, „Real-time Hatching_”. Nie zaimplementowałem jednak proponowanego w niej sposobu obrotu kresek za pomocą nakładających się łat. 
 
 ## Breslav 
+![GitHub Logo](https://github.com/defacto2k15/defacto2k15.github.io/blob/master/assets/hatching/Breslav.gif)
   - Projekt [mf-Breslav](https://github.com/defacto2k15/PwMgr/blob/master/Assets/Projects/mf/mf-Breslav.unity)
   - Materiał obiektu afBreslav,  [mf_Breslav.shader](https://github.com/defacto2k15/PwMgr/blob/master/Assets/Resources/shaders/mf_Breslav.shader)
   - Skrypt obiektu [BreslavObjectDebugOC](https://github.com/defacto2k15/PwMgr/blob/master/Assets/NPR/Filling/Breslav/BreslavObjectDebugOC.cs)
