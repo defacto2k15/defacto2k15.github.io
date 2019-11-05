@@ -20,16 +20,7 @@ W projektach występuje ruchoma kamera. Kontrolować można ją za pomocą
   - Myszka – Składowe Pitch i Yaw obrotu kamery
   - **Y** i **T** – Składowa Roll obrotu kamery  
 
-            <video
-                id="gif-mp4"
-                poster="https://media.giphy.com/media/cjKwheOfSEGdsw0gEV/200_s.gif"
-                style="margin:0;padding:0"
-                width="480"
-                height="270"
-                autoplay
-                loop>
-                <source src="https://github.com/defacto2k15/defacto2k15.github.io/blob/master/assets/hatching/Tam.mp4" type='video/mp4'></source>
-            </video>
+
                         <video
                 id="gif-mp4"
                 poster="https://media.giphy.com/media/cjKwheOfSEGdsw0gEV/200_s.gif"
