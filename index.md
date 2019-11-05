@@ -20,24 +20,6 @@ W projektach występuje ruchoma kamera. Kontrolować można ją za pomocą
   - Myszka – Składowe Pitch i Yaw obrotu kamery
   - **Y** i **T** – Składowa Roll obrotu kamery  
 
-<dl>
-              <video
-                id="gif-mp4"
-                poster="https://media.giphy.com/media/cjKwheOfSEGdsw0gEV/200_s.gif"
-                style="margin:0;padding:0"
-                width="480"
-                height="270"
-                autoplay
-                loop>
-                <source src="https://media.giphy.com/media/cjKwheOfSEGdsw0gEV/giphy.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'></source>
-                <img src="https://media.giphy.com/media/cjKwheOfSEGdsw0gEV/giphy.gif" title="Your browser does not support the mp4 video codec." />
-            </video>
-  <dt>Definition list</dt>
-  <dd>Is something people use sometimes.</dd>
-
-  <dt>Markdown in HTML</dt>
-  <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
-</dl>
             <video
                 id="gif-mp4"
                 poster="https://media.giphy.com/media/cjKwheOfSEGdsw0gEV/200_s.gif"
@@ -46,8 +28,7 @@ W projektach występuje ruchoma kamera. Kontrolować można ją za pomocą
                 height="270"
                 autoplay
                 loop>
-                <source src="https://media.giphy.com/media/cjKwheOfSEGdsw0gEV/giphy.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'></source>
-                <img src="https://media.giphy.com/media/cjKwheOfSEGdsw0gEV/giphy.gif" title="Your browser does not support the mp4 video codec." />
+                <source src="https://github.com/defacto2k15/defacto2k15.github.io/blob/master/assets/hatching/Tam.mp4" type='video/mp4'></source>
             </video>
 
 # Zaimplementowane metody
