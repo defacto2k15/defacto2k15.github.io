@@ -46,7 +46,7 @@ W projektach występuje ruchoma kamera. Kontrolować można ją za pomocą
                 height="270"
                 autoplay
                 loop>
-                <source src="https://media.giphy.com/media/cjKwheOfSEGdsw0gEV/giphy.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'></source>
+                <source src="https://github.com/defacto2k15/defacto2k15.github.io/blob/master/assets/hatching/Breslav.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'></source>
                 <img src="https://media.giphy.com/media/cjKwheOfSEGdsw0gEV/giphy.gif" title="Your browser does not support the mp4 video codec." />
             </video>
 
