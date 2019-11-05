@@ -1,37 +1,98 @@
-## Welcome to GitHub Pages
+# Szrafowanie
 
-You can use the [editor on GitHub](https://github.com/defacto2k15/defacto2k15.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+Metodami szrafowania zajmowałem się w ramach tworzenia pracy magisterskiej pt. „_Algorytm szrafowania w przestrzeni obrazu zachowujący spójność czasową_” TODO link. Zaimplementowałem sześć istniejących rozwiązań z artykułów naukowych oraz dwie nowe metody. Sposoby szrafowania w zautomatyzowany sposób porównywałem pod względem spójności czasowej tworzonej animacji oraz wydajności. 
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Projekt Unity zawarty w [repozytorium](https://github.com/defacto2k15/PwMgr) zawiera wszelkie zasoby oraz kod pozwalający na własnoręcznie uruchomienie sceny wykorzystującej szrafowanie dowolnym rozwiązaniem. 
+Każda metoda ma  przypisany skrót wykorzystywany w nazwach klas i nazwach shaderów do danego sposobu szrafowania przypisanych.
+Wyróżnić należy zestaw skryptów i obiektów, które mogą być używane w danej metodzie. Podaje ścieżki do tych elementów, kiedy są wykorzystywane.
 
-### Markdown
+  - Skrypt obiektu – MonoBehaviour przypisany do obiektu, który jest szrafowany.
+  - Skrypt kamery – MonoBehaviour przypisany do kamery renderującej scenę. Zwykle modyfikuje proces rysowania tak, aby umożliwić post-processing
+  - Materiał obiektu – Materiał, czyli shader + wartości parametrów, które rysują szrafowany obiekt na ekranie w pierwszym, a czasami jedynym przebiegu renderowania (pass).   
+  - Materiał post-procesingu – materiał wykorzystywany pod koniec procesu rysowania klatki, który odczytuje i modyfikuje piksele już wcześniej wyrenderowanej ramki. W przeciwieństwie do materiału obiektu nie operuje na wierzchołkach i nie rysuje jedynie niektórych obiektów. 
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Shadery używają techniki wielu celów renderowania (MRT), dzięki czemu pixel shader zapisuje kolory do kilku ramek. Wykorzystuje technikę tą przede wszystkim do zbierania danych wykorzystywanych dalej do porównań. Niektóre metody szrafowania wymagają jednak zapisywania dodatkowych danych w rezultacie działania shadera obiektu, do czego też używam MRT.
 
-```markdown
-Syntax highlighted code block
+W przypadku niektórych rozwiązań materiał obiektu potrzebuje więcej informacji niż tych domyślnie przypisanych do mesha jak normalne, styczne itd.  W takim przypadku generuje wcześniej bufor, w którym umieszczone są wymagane dane. Przy uruchomieniu projektu skrypt  [MasterCachedShaderBufferInjectOC](https://github.com/defacto2k15/PwMgr/blob/master/Assets/NPR/DataBuffers/MasterCachedShaderBufferInjectOC.cs) odczytuje je z dysku i przesyła do shadera jako `StructuredBuffer`, z którego poszczególne elementy są odczytywane z wykorzystaniem identyfikatora wierzchołka bądź trójkąta. 
 
-# Header 1
-## Header 2
-### Header 3
+W projektach występuje ruchoma kamera. Kontrolować można ją za pomocą
+  - **WSAD**, oraz **E** i **Q** kontroluje położenie w przestrzeni. 
+  - Myszka – Składowe Pitch i Yaw obrotu kamery
+  - **Y** i **T** – Składowa Roll obrotu kamery  
 
-- Bulleted
-- List
+<dl>
+  <dt>Definition list</dt>
+  <dd>Is something people use sometimes.</dd>
 
-1. Numbered
-2. List
+  <dt>Markdown in HTML</dt>
+  <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
+</dl>
 
-**Bold** and _Italic_ and `Code` text
 
-[Link](url) and ![Image](src)
-```
+# Zaimplementowane metody
+## Tam - Mapy tonalne
+  - Projekt [mf-tam](https://github.com/defacto2k15/PwMgr/blob/master/Assets/Projects/mf/mf-tam.unity)
+  - Materiał obiektu afTam, [mf_Tam.shader](https://github.com/defacto2k15/PwMgr/blob/master/Assets/Resources/shaders/mf_Tam.shader)
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+Utworzone na podstawie pracy _E. Praun, H. Hoppe, M. Webb i A. Finkelstein, „Real-time Hatching_”. Nie zaimplementowałem jednak proponowanego w niej sposobu obrotu kresek za pomocą nakładających się łat. 
 
-### Jekyll Themes
+## Breslav 
+  - Projekt [mf-Breslav](https://github.com/defacto2k15/PwMgr/blob/master/Assets/Projects/mf/mf-Breslav.unity)
+  - Materiał obiektu afBreslav,  [mf_Breslav.shader](https://github.com/defacto2k15/PwMgr/blob/master/Assets/Resources/shaders/mf_Breslav.shader)
+  - Skrypt obiektu [BreslavObjectDebugOC](https://github.com/defacto2k15/PwMgr/blob/master/Assets/NPR/Filling/Breslav/BreslavObjectDebugOC.cs)
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/defacto2k15/defacto2k15.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Utworzone na podstawie pracy _S. Breslav, K. Szerszen, L. Markosian, P. Barla i J. Thollot, „Dynamic 2D Patterns for Shading 3D Scenes”_, bez zaimplementowanego dzielenia obiektu na łaty.
 
-### Support or Contact
+## Jordane
+  - Projekt [mf-Jordane](https://github.com/defacto2k15/PwMgr/blob/master/Assets/Projects/mf/mf-Jordane.unity) 
+  - Materiał obiektu afJordane,  [mf_jordane.shader](https://github.com/defacto2k15/PwMgr/blob/master/Assets/Resources/shaders/mf_jordane.shader)
+  
+Utworzone na podstawie pracy _J. Suarez, F. Belhadj i V. Boyer, „Real-time 3D Rendering with Hatching_.
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+## Szecsi
+  - Projekt [mf-Szecsi](https://github.com/defacto2k15/PwMgr/blob/master/Assets/Projects/mf/mf-Szecsi.unity)
+  - Materiał obiektu afSzecsi, [mf-szecsi.shader](https://github.com/defacto2k15/PwMgr/blob/master/Assets/Resources/shaders/mf-szecsi.shader)
+  - Skrypt obiektu [NprSzecsiDebugGo](https://github.com/defacto2k15/PwMgr/blob/master/Assets/NPR/Filling/Szecsi/NprSzecsiDebugGo.cs)
+
+Utworzone na podstawie pracy _T. U. László Szécsi Marcell Szirányi, „Improving Texture-based NPR”_.	
+
+## Wolowski
+  - Projekt [mf-Wolowski](https://github.com/defacto2k15/PwMgr/blob/master/Assets/Projects/mf/mf-Wolowski.unity)
+  - Materiał obiektu afWolowski, [mf_Wolowski.shader](https://github.com/defacto2k15/PwMgr/blob/master/Assets/Resources/shaders/mf_Wolowski.shader)
+
+Utworzone na podstawie pracy magisterskiej _K. Wołowski, „Stylized Shading Algorithms_. 	
+
+## TamIss
+  - Projekt [mf-tamiss](https://github.com/defacto2k15/PwMgr/blob/master/Assets/Projects/mf/mf-tamiss.unity)
+  - Skrypt kamery: [TamIssPostProcessingDirectorOC](https://github.com/defacto2k15/PwMgr/blob/master/Assets/NPR/Filling/TamID/TamIssPostProcessingDirectorOC.cs)
+  - Materiały post-processingu		
+      - afTamIssFragmentGathering [mf_TamIss_FragmentGathering.shader](https://github.com/defacto2k15/PwMgr/blob/master/Assets/Resources/shaders/mf_TamIss_FragmentGathering.shader)
+      - FillingTamIdBufferAggregateRendererMat [sandbox_fillingTamIdBufferAggreagateRenderer.shader](https://github.com/defacto2k15/PwMgr/blob/master/Assets/Resources/shaders/sandbox_fillingTamIdBufferAggreagateRenderer.shader)
+      - FillingTamIdBufferMaxMinRendererMat [sandbox_fillingTamIdBufferMinMaxRenderer.shader](https://github.com/defacto2k15/PwMgr/blob/master/Assets/Resources/shaders/sandbox_fillingTamIdBufferMinMaxRenderer.shader)
+
+Utworzone na podstawie  _L. Szécsi, M. Szirányi i A. Kacsó, „Tonal Art Maps with Image Space Strokes”_.
+
+## MMGeometric
+
+  - Projekt [mf-mmGeometric](https://github.com/defacto2k15/PwMgr/blob/master/Assets/Projects/mf/mf-mmGeometric.unity)
+  - Skrypt obiektu [MyMethodObjectDebugOC](https://github.com/defacto2k15/PwMgr/blob/master/Assets/NPR/Filling/MM/MyMethodObjectDebugOC.cs)
+  - Materiał obiektu [sandbox_fillingMM3DSeedsDebug.shader](https://github.com/defacto2k15/PwMgr/blob/master/Assets/Resources/shaders/sandbox_fillingMM3DSeedsDebug.shader)
+  - Skrypt kamery [MyMethodPostProcessingDirectorOC](https://github.com/defacto2k15/PwMgr/blob/master/Assets/NPR/Filling/MM/MyMethodPostProcessingDirectorOC.cs)
+  - Materiały post-processingu 
+      - filling_MMStage1Mat [sandbox_fillingMMStage1Renderer.shader](https://github.com/defacto2k15/PwMgr/blob/master/Assets/Resources/shaders/sandbox_fillingMMStage1Renderer.shader)
+      - filling_MMGeometryAlphaRenderingMat [sandbox_fillingMMGeometryAlphaRenderer.shader](https://github.com/defacto2k15/PwMgr/blob/master/Assets/Resources/shaders/sandbox_fillingMMGeometryAlphaRenderer.shader)
+
+Nowatorskie rozwiązanie mojego autorstwa. Poszczególne kreski rysowane są jako prostokąty umieszczane na powierzchni ekranu. Nie wymaga definiowania współrzędnych UV. Parametryzowany poziom szczegółowości [nieskończony zoom] tak jak rozwiązanie Szecsi. 
+
+## MMStandard
+
+  - Projekt [mf-mmStandard](https://github.com/defacto2k15/PwMgr/blob/master/Assets/Projects/mf/mf-mmStandard.unity)
+  - Skrypt obiektu [MyMethodObjectDebugOC](https://github.com/defacto2k15/PwMgr/blob/master/Assets/NPR/Filling/MM/MyMethodObjectDebugOC.cs)
+  - Materiał obiektu [sandbox_fillingMM3DSeedsDebug.shader](https://github.com/defacto2k15/PwMgr/blob/master/Assets/Resources/shaders/sandbox_fillingMM3DSeedsDebug.shader)
+  - Skrypt kamery [MyMethodPostProcessingDirectorOC](https://github.com/defacto2k15/PwMgr/blob/master/Assets/NPR/Filling/MM/MyMethodPostProcessingDirectorOC.cs)
+  - Materiały post-processingu 
+      - filling_MMStage1Mat [sandbox_fillingMMStage1Renderer.shader](https://github.com/defacto2k15/PwMgr/blob/master/Assets/Resources/shaders/sandbox_fillingMMStage1Renderer.shader)
+      - fillingMM_SSGM_DebugRendererMap [sandbox_fillingMMStrokeSeedGridMapDebugRenderer.shader](https://github.com/defacto2k15/PwMgr/blob/master/Assets/Resources/shaders/sandbox_fillingMMStrokeSeedGridMapDebugRenderer.shader)
+
+Alternatywna wersja mojego rozwiązania. Kreski rysowane są bezpośrednio w pikselowym shaderze, z pominięciem prostokątnej reprezentacji geometrycznej.
+
