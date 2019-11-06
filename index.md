@@ -23,14 +23,14 @@ W projektach występuje ruchoma kamera. Kontrolować można ją za pomocą
 
 # Zaimplementowane metody
 ## Tam - Mapy tonalne
-![Tam](https://github.com/defacto2k15/defacto2k15.github.io/blob/master/assets/hatching/Tam.gif)
+![Tam](https://github.com/defacto2k15/defacto2k15.github.io/blob/master/assets/hatching/Tam.gif?raw=true)
   - Projekt [mf-tam](https://github.com/defacto2k15/PwMgr/blob/master/Assets/Projects/mf/mf-tam.unity)
   - Materiał obiektu afTam, [mf_Tam.shader](https://github.com/defacto2k15/PwMgr/blob/master/Assets/Resources/shaders/mf_Tam.shader)
 
 Utworzone na podstawie pracy _E. Praun, H. Hoppe, M. Webb i A. Finkelstein, „Real-time Hatching_”. Nie zaimplementowałem jednak proponowanego w niej sposobu obrotu kresek za pomocą nakładających się łat. 
 
 ## Breslav 
-![Breslav](https://github.com/defacto2k15/defacto2k15.github.io/blob/master/assets/hatching/Breslav.gif)
+![Breslav](https://github.com/defacto2k15/defacto2k15.github.io/blob/master/assets/hatching/Breslav.gif?raw=true)
   - Projekt [mf-Breslav](https://github.com/defacto2k15/PwMgr/blob/master/Assets/Projects/mf/mf-Breslav.unity)
   - Materiał obiektu afBreslav,  [mf_Breslav.shader](https://github.com/defacto2k15/PwMgr/blob/master/Assets/Resources/shaders/mf_Breslav.shader)
   - Skrypt obiektu [BreslavObjectDebugOC](https://github.com/defacto2k15/PwMgr/blob/master/Assets/NPR/Filling/Breslav/BreslavObjectDebugOC.cs)
@@ -38,14 +38,14 @@ Utworzone na podstawie pracy _E. Praun, H. Hoppe, M. Webb i A. Finkelstein, „R
 Utworzone na podstawie pracy _S. Breslav, K. Szerszen, L. Markosian, P. Barla i J. Thollot, „Dynamic 2D Patterns for Shading 3D Scenes”_, bez zaimplementowanego dzielenia obiektu na łaty.
 
 ## Jordane
-![Jordane](https://github.com/defacto2k15/defacto2k15.github.io/blob/master/assets/hatching/Jordane.gif)
+![Jordane](https://github.com/defacto2k15/defacto2k15.github.io/blob/master/assets/hatching/Jordane.gif?raw=true)
   - Projekt [mf-Jordane](https://github.com/defacto2k15/PwMgr/blob/master/Assets/Projects/mf/mf-Jordane.unity) 
   - Materiał obiektu afJordane,  [mf_jordane.shader](https://github.com/defacto2k15/PwMgr/blob/master/Assets/Resources/shaders/mf_jordane.shader)
   
 Utworzone na podstawie pracy _J. Suarez, F. Belhadj i V. Boyer, „Real-time 3D Rendering with Hatching_.
 
 ## Szecsi
-![Szecsi](https://github.com/defacto2k15/defacto2k15.github.io/blob/master/assets/hatching/Szecsi.gif)
+![Szecsi](https://github.com/defacto2k15/defacto2k15.github.io/blob/master/assets/hatching/Szecsi.gif?raw=true)
   - Projekt [mf-Szecsi](https://github.com/defacto2k15/PwMgr/blob/master/Assets/Projects/mf/mf-Szecsi.unity)
   - Materiał obiektu afSzecsi, [mf-szecsi.shader](https://github.com/defacto2k15/PwMgr/blob/master/Assets/Resources/shaders/mf-szecsi.shader)
   - Skrypt obiektu [NprSzecsiDebugGo](https://github.com/defacto2k15/PwMgr/blob/master/Assets/NPR/Filling/Szecsi/NprSzecsiDebugGo.cs)
@@ -53,14 +53,14 @@ Utworzone na podstawie pracy _J. Suarez, F. Belhadj i V. Boyer, „Real-time 3D 
 Utworzone na podstawie pracy _T. U. László Szécsi Marcell Szirányi, „Improving Texture-based NPR”_.	
 
 ## Wolowski
-![Wolowski](https://github.com/defacto2k15/defacto2k15.github.io/blob/master/assets/hatching/Wolowski.gif)
+![Wolowski](https://github.com/defacto2k15/defacto2k15.github.io/blob/master/assets/hatching/Wolowski.gif?raw=true)
   - Projekt [mf-Wolowski](https://github.com/defacto2k15/PwMgr/blob/master/Assets/Projects/mf/mf-Wolowski.unity)
   - Materiał obiektu afWolowski, [mf_Wolowski.shader](https://github.com/defacto2k15/PwMgr/blob/master/Assets/Resources/shaders/mf_Wolowski.shader)
 
 Utworzone na podstawie pracy magisterskiej _K. Wołowski, „Stylized Shading Algorithms_. 	
 
 ## TamIss
-![TamIss](https://github.com/defacto2k15/defacto2k15.github.io/blob/master/assets/hatching/TamIss.gif)
+![TamIss](https://github.com/defacto2k15/defacto2k15.github.io/blob/master/assets/hatching/TamIss.gif?raw=true)
   - Projekt [mf-tamiss](https://github.com/defacto2k15/PwMgr/blob/master/Assets/Projects/mf/mf-tamiss.unity)
   - Skrypt kamery: [TamIssPostProcessingDirectorOC](https://github.com/defacto2k15/PwMgr/blob/master/Assets/NPR/Filling/TamID/TamIssPostProcessingDirectorOC.cs)
   - Materiały post-processingu		
@@ -71,7 +71,7 @@ Utworzone na podstawie pracy magisterskiej _K. Wołowski, „Stylized Shading Al
 Utworzone na podstawie  _L. Szécsi, M. Szirányi i A. Kacsó, „Tonal Art Maps with Image Space Strokes”_.
 
 ## MMGeometric
-![MMGeometric](https://github.com/defacto2k15/defacto2k15.github.io/blob/master/assets/hatching/MMGeometric.gif)
+![MMGeometric](https://github.com/defacto2k15/defacto2k15.github.io/blob/master/assets/hatching/MMGeometric.gif?raw=true)
   - Projekt [mf-mmGeometric](https://github.com/defacto2k15/PwMgr/blob/master/Assets/Projects/mf/mf-mmGeometric.unity)
   - Skrypt obiektu [MyMethodObjectDebugOC](https://github.com/defacto2k15/PwMgr/blob/master/Assets/NPR/Filling/MM/MyMethodObjectDebugOC.cs)
   - Materiał obiektu [sandbox_fillingMM3DSeedsDebug.shader](https://github.com/defacto2k15/PwMgr/blob/master/Assets/Resources/shaders/sandbox_fillingMM3DSeedsDebug.shader)
@@ -83,7 +83,7 @@ Utworzone na podstawie  _L. Szécsi, M. Szirányi i A. Kacsó, „Tonal Art Maps
 Nowatorskie rozwiązanie mojego autorstwa. Poszczególne kreski rysowane są jako prostokąty umieszczane na powierzchni ekranu. Nie wymaga definiowania współrzędnych UV. Parametryzowany poziom szczegółowości [nieskończony zoom] tak jak rozwiązanie Szecsi. 
 
 ## MMStandard
-![MMStandard](https://github.com/defacto2k15/defacto2k15.github.io/blob/master/assets/hatching/MMStandard.gif)
+![MMStandard](https://github.com/defacto2k15/defacto2k15.github.io/blob/master/assets/hatching/MMStandard.gif?raw=true)
   - Projekt [mf-mmStandard](https://github.com/defacto2k15/PwMgr/blob/master/Assets/Projects/mf/mf-mmStandard.unity)
   - Skrypt obiektu [MyMethodObjectDebugOC](https://github.com/defacto2k15/PwMgr/blob/master/Assets/NPR/Filling/MM/MyMethodObjectDebugOC.cs)
   - Materiał obiektu [sandbox_fillingMM3DSeedsDebug.shader](https://github.com/defacto2k15/PwMgr/blob/master/Assets/Resources/shaders/sandbox_fillingMM3DSeedsDebug.shader)
