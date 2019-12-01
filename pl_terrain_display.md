@@ -108,9 +108,9 @@ W przypadku mojego programu, za pomocą zestawu piramid określam nie tylko wyso
 
 ## Działanie programu testowego
 ![expectedView](assets/terrain/expectedView.png)
-Oczekiwany obraz po zakończeniu wczytywania. Umieszczenie kamery odpowiada położeniu na polanie [Norczak] (https://www.openstreetmap.org/#map=16/49.6048/19.5500) i zwróceniu na południe.
+Oczekiwany obraz po zakończeniu wczytywania. Umieszczenie kamery odpowiada położeniu na polanie [Norczak](https://www.openstreetmap.org/#map=16/49.6048/19.5500) i zwróceniu na południe.
 
-Rozwiązanie najlepiej uruchomić w edytorze, w scenie [ETerrainAsync](https://github.com/defacto2k15/defacto2k15.github.io/blob/master/Assets/Projects/Extended/ETerrainAsync.unity) . Kompilacja i uruchomienie programu jako pliku wykonywalnego też powinno zadziałać. Nalezy podkreślić, że program tworzyć będzie pliki w folderze [precomputedResources/unityCache](https://github.com/defacto2k15/defacto2k15.github.io/blob/master/precomputedResources/unityCache) dla tekstury ziemi TODO, oraz [precomputedResources/surfaceCache](https://github.com/defacto2k15/defacto2k15.github.io/blob/master/precomputedResources/surfaceCache) dla powierzchni terenu. Początkowe tekstury segmentów już się tam znajdują, nowe zostaną dodane wraz z poruszaniem się kamery.
+Rozwiązanie najlepiej uruchomić w edytorze, w scenie [ETerrainAsync](https://github.com/defacto2k15/PwMgr/tree/master/Assets/Projects/Extended/ETerrainAsync.unity) . Kompilacja i uruchomienie programu jako pliku wykonywalnego też powinno zadziałać. Nalezy podkreślić, że program tworzyć będzie pliki w folderze [precomputedResources/unityCache](https://github.com/defacto2k15/PwMgr/tree/master/precomputedResources/unityCache) dla tekstury ziemi, oraz [precomputedResources/surfaceCache](https://github.com/defacto2k15/PwMgr/tree/master/precomputedResources/surfaceCache) dla powierzchni terenu. Początkowe tekstury segmentów już się tam znajdują, nowe zostaną dodane wraz z poruszaniem się kamery.
 
 Przygotowany program  demonstracyjny pozwala na poruszanie się kamerą w przygotowanej przestrzeni trójwymiarowej zawierającej generowany term. Ruchu możliwy jest za pomocą:
 

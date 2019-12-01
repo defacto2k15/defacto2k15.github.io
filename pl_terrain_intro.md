@@ -10,4 +10,4 @@ Postanowiłem nie korzystać z obecnego w Unity systemu terenu i samemu opracowa
 
 Zachowanie wysokiej ilości generowanych klatek na sekundę podczas wyświetlania ogromnej sceny z dużą ilością roślin wymagać będzie implementacji nietrywialnych rozwiązań zmieniających poziom szczegółowości.
 
-![Babiogórski Park Narodowy(assets/terrain/babiogorskiPark1.jpg)
+![Babiogórski Park Narodowy](assets/terrain/babiogorskiPark1.jpg)
