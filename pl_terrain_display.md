@@ -125,3 +125,5 @@ Przygotowany program  demonstracyjny pozwala na poruszanie się kamerą w przygo
 Wyświetlaną piramidę przełączać można klawiszami **<** oraz **>**. Mapa przedstawia też informacje o stanie przetwarzania danego sektora. 
 
 W przypadku, kiedy do wyświetlania terenu wymagana jest obecność nieprzygotowanego jeszcze sektora, ruch kamery zostaje zablokowany.
+
+Używając klawisza **2** cyklicznie zmieniać można metodę rysowania powierzchni terenu. Oprócz zwykłej tekstury dostępne jest określanie koloru powierzchni według pierścieni oraz wykorzystanie jednolitego koloru, aby przeanalizować kształt zaznaczony mapą normalnych.
