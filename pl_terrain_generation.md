@@ -17,22 +17,22 @@ Zasadniczo skrypty programu nie korzystają bezpośrednio z mapy wejściowej, a 
 
 ### Metody dodające szczegółowość:
 #### Szum fraktalny 
-( [https://github.com/defacto2k15/PwMgr/tree/master\Assets\Heightmaps\Ring1\TerrainDescription\FeatureGenerating\RandomNoiseTerrainFeatureApplier.cs](RandomNoiseTerrainFeatureApplier) )
+( [RandomNoiseTerrainFeatureApplier](https://github.com/defacto2k15/PwMgr/tree/master/Assets/Heightmaps/Ring1/TerrainDescription/FeatureGenerating/RandomNoiseTerrainFeatureApplier.cs) )
 ![rys-13-rand](assets/terrain/rys-13-rand.png)
 
 #### Algorytm diament-kwadrat
-([https://github.com/defacto2k15/PwMgr/tree/master\Assets\Heightmaps\Ring1\TerrainDescription\FeatureGenerating\DiamondSquareTerrainFeatureApplier.cs](DiamondSquareTerrainFeatureApplier))
+([DiamondSquareTerrainFeatureApplier](https://github.com/defacto2k15/PwMgr/tree/master/Assets/Heightmaps/Ring1/TerrainDescription/FeatureGenerating/DiamondSquareTerrainFeatureApplier.cs))
 ![rys-13-thermal](assets/terrain/rys-13-thermal.png)
 
 #### Erozja termalna
-([https://github.com/defacto2k15/PwMgr/tree/master\Assets\Heightmaps\Ring1\TerrainDescription\FeatureGenerating\ThermalErosionTerrainFeatureApplier.cs](ThermalErosionTerrainFeatureApplier) oraz wersja alternatywna [https://github.com/defacto2k15/PwMgr/tree/master\Assets\Heightmaps\Ring1\TerrainDescription\FeatureGenerating\TweakedThermalErosionTerrainFeatureApplier.cs](TweakedThermalErosionTerrainFeatureApplier))
+([ThermalErosionTerrainFeatureApplier](https://github.com/defacto2k15/PwMgr/tree/master/Assets/Heightmaps/Ring1/TerrainDescription/FeatureGenerating/ThermalErosionTerrainFeatureApplier.cs) oraz wersja alternatywna [TweakedThermalErosionTerrainFeatureApplier](https://github.com/defacto2k15/PwMgr/tree/master/Assets/Heightmaps/Ring1/TerrainDescription/FeatureGenerating/TweakedThermalErosionTerrainFeatureApplier.cs))
 ![rys-13-thermal](assets/terrain/rys-13-thermal.png)
 
 #### Erozja hydrauliczna
-([https://github.com/defacto2k15/PwMgr/tree/master\Assets\Heightmaps\Ring1\TerrainDescription\FeatureGenerating\HydraulicErosionTerrainFeatureApplier.cs](HydraulicErosionTerrainFeatureApplier))
+([HydraulicErosionTerrainFeatureApplier](https://github.com/defacto2k15/PwMgr/tree/master/Assets/Heightmaps/Ring1/TerrainDescription/FeatureGenerating/HydraulicErosionTerrainFeatureApplier.cs))
 ![rys-13-hydraulic](assets/terrain/rys-13-hydraulic.png)
 
-Dodatkowo kształt terenu wzbogacam o umieszczanie na nich wygładzeń reprezentujących rzeczywiście istniejące ścieżki ([https://github.com/defacto2k15/PwMgr/tree/master\Assets\Heightmaps\Ring1\TerrainDescription\FeatureGenerating\RoadEngravingTerrainFeatureApplier.cs](RoadEngravingTerrainFeatureApplier)).
+Dodatkowo kształt terenu wzbogacam o umieszczanie na nich wygładzeń reprezentujących rzeczywiście istniejące ścieżki ([RoadEngravingTerrainFeatureApplier](https://github.com/defacto2k15/PwMgr/tree/master/Assets/Heightmaps/Ring1/TerrainDescription/FeatureGenerating/RoadEngravingTerrainFeatureApplier.cs)).
 
 Jako parametr wejściowy algorytm otrzymuje niezmodyfikowaną lub wstępnie zmodyfikowaną teksturę segmentu.
 Z wyjątkiem algorytmu diament-kwadrat, algorytmy wykonywane są na GPU, z wykorzystaniem odpowiednich shaderów.  
@@ -86,7 +86,9 @@ W celu scalenia wszystkich brzegów segmentu niezbędna jest obecność dodatkow
 ## Przechowywanie segmentów
 
 Tworząc rozwiązanie ,spotkałem się z problemem określenia efektywnej metody przechowywania i zarządzania segmentami. Zauważyłem, że niezbędne jest niekiedy kilkukrotne wykorzystywanie pewnych segmentów, pomimo nieużywania ich do wyświetlania terenu. Powtarzające się tworzenie i usuwanie tego rodzaju zasobów byłoby znacznym marnotrawstwem. Wprowadziłem obiekt określany jako pamięć podręczna (*cache*), zawierający referencje do wszystkich utworzonych segmentów oraz informacji je charakteryzujących. Ilość obiektów wykorzystujących zasób w danej chwili określana jest poprzez wykorzystanie mechanizmu zliczania referencji (*reference counting*).  Kiedy licznik taki osiągnie wartość zerową, element nie jest od razu kasowany. Przechowuje pewną ilość „nieużywanych” segmentów, ograniczoną przyporządkowaną ilością pamięci. Stosunkowo często elementy takie znów są potrzebne, a przechowywanie ich czyni powtórną generację zbędną.
+
 Drugim problemem jest znaczna ilość czasu wymagana, aby wygenerować zestaw segmentów wykorzystywany podczas uruchomienia programu. Zaimplementowałem mechanizm zapisywania utworzonych segmentów na dysku. Powtórnie uruchomiony program nie potrzebuje więc znów generować segmentów.  W przypadku, kiedy dany segment jest niezbędny do działania programu i nie znajduje się w pamięci podręcznej, przed generacją sprawdzane jest, czy został on wcześniej zapisany na dysku. 
+
 Rozwiązanie to stosuje nie tylko dla segmentów mapy wysokości, ale także przy obsłudze tekstury powierzchni oraz map normalnych.  
 
 
