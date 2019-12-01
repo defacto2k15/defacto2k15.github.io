@@ -17,22 +17,22 @@ Zasadniczo skrypty programu nie korzystają bezpośrednio z mapy wejściowej, a 
 
 ### Metody dodające szczegółowość:
 #### Szum fraktalny 
-(RandomNoiseTerrainFeatureApplier.cs TODO)
-![rys-13-rand](rys-13-rand.png)
+( [https://github.com/defacto2k15/PwMgr/tree/master\Assets\Heightmaps\Ring1\TerrainDescription\FeatureGenerating\RandomNoiseTerrainFeatureApplier.cs](RandomNoiseTerrainFeatureApplier) )
+![rys-13-rand](assets/terrain/rys-13-rand.png)
 
 #### Algorytm diament-kwadrat
-(DiamondSquareTerrainFeatureApplier)
-![rys-13-thermal](rys-13-thermal.png)
+([https://github.com/defacto2k15/PwMgr/tree/master\Assets\Heightmaps\Ring1\TerrainDescription\FeatureGenerating\DiamondSquareTerrainFeatureApplier.cs](DiamondSquareTerrainFeatureApplier))
+![rys-13-thermal](assets/terrain/rys-13-thermal.png)
 
 #### Erozja termalna
-(ThermalErosionTerrainFeatureApplier oraz wersja alternatywna TweakedThermalErosionTerrainFeatureApplier)
-![rys-13-thermal](rys-13-thermal.png)
+([https://github.com/defacto2k15/PwMgr/tree/master\Assets\Heightmaps\Ring1\TerrainDescription\FeatureGenerating\ThermalErosionTerrainFeatureApplier.cs](ThermalErosionTerrainFeatureApplier) oraz wersja alternatywna [https://github.com/defacto2k15/PwMgr/tree/master\Assets\Heightmaps\Ring1\TerrainDescription\FeatureGenerating\TweakedThermalErosionTerrainFeatureApplier.cs](TweakedThermalErosionTerrainFeatureApplier))
+![rys-13-thermal](assets/terrain/rys-13-thermal.png)
 
 #### Erozja hydrauliczna
-(HydraulicErosionTerrainFeatureApplier)
-![rys-13-hydraulic](rys-13-hydraulic.png)
+([https://github.com/defacto2k15/PwMgr/tree/master\Assets\Heightmaps\Ring1\TerrainDescription\FeatureGenerating\HydraulicErosionTerrainFeatureApplier.cs](HydraulicErosionTerrainFeatureApplier))
+![rys-13-hydraulic](assets/terrain/rys-13-hydraulic.png)
 
-Dodatkowo kształt terenu wzbogacam o umieszczanie na nich wygładzeń reprezentujących rzeczywiście istniejące ścieżki (RoadEngravingTerrainFeatureApplier).
+Dodatkowo kształt terenu wzbogacam o umieszczanie na nich wygładzeń reprezentujących rzeczywiście istniejące ścieżki ([https://github.com/defacto2k15/PwMgr/tree/master\Assets\Heightmaps\Ring1\TerrainDescription\FeatureGenerating\RoadEngravingTerrainFeatureApplier.cs](RoadEngravingTerrainFeatureApplier)).
 
 Jako parametr wejściowy algorytm otrzymuje niezmodyfikowaną lub wstępnie zmodyfikowaną teksturę segmentu.
 Z wyjątkiem algorytmu diament-kwadrat, algorytmy wykonywane są na GPU, z wykorzystaniem odpowiednich shaderów.  
@@ -49,27 +49,38 @@ Zestaw dziewięciu sąsiadujących segmentów.
 Postanowiłem scalać okolice brzegów segmentów na podstawie informacji o segmentach stykających się w danym rogu. Brzegi dziele więc na cztery grupy, przypisane do danego rogu segmentu – dla każdego brzegu jego połowy należą do różnych grup i będą osobno scalane.
 
 ![t5-2](assets/terrain/t5-2conv.jpg)
+
 Podział brzegów na grupy.
 
 Zasadniczo do grupy przypisać można cztery połówki brzegu z czterech segmentów, ale scalanie wykonywane będzie osobno dla każdego z segmentów.
 Każdą połówkę brzegu współdzieli para segmentów. Postanowiłem taką parę segmentów połączyć relacją nadrzędny- podrzędny. Kształt brzegu definiowany jest wyłącznie przez segment nadrzędny – do elementu podrzędnego kształt powierzchni w pobliżu granicy będzie modyfikowany tak, aby płynnie dopasować go do brzegu. 
 
 ![t5-3](assets/terrain/t5-3conv.jpg)
+
 Połówki brzegów należące do jednej grupy.
+
 ![t5-4](assets/terrain/t5-4conv.jpg)
+
 Relacje między segmentami przy scalaniu brzegów wokół wspólnego wierzchołka przedstawiłem na diagramie. Należy zauważyć, że kolejność scalania dla segmentów 2 i 3 nie jest istotna – nie współdzielą one brzegu, a wysokość wspólnego wierzchołka definiuje segment 1.  Warto też podkreślić, że na kształt brzegu B wpływ będzie miał segment 1, pomimo że go nie współdzieli. 
 
 ![t5-5](assets/terrain/t5-5conv.jpg)
+
 Barwy przedstawiają wpływ segmentów na wysokości brzegowe.
 
 ![t5-6](assets/terrain/t5-6conv.jpg)
+
 Wpływ segmentów nadrzędnych.
 
 ![t5-7](assets/terrain/t5-7conv.jpg)
+
 Wysokość segmentu jako składowe sumy.
+
 ![t5-8](assets/terrain/t5-8conv.jpg)
+
 Należy podkreślić, że duży rozmiar obszaru modyfikacji, obecny na poprzednich diagramach, występuje w celach ilustracyjnych. W programie jest on konfigurowalny i mniejszy.
+
 ![t5-9](assets/terrain/t5-9conv.jpg)
+
 W celu scalenia wszystkich brzegów segmentu niezbędna jest obecność dodatkowych trzech sąsiednich segmentów. Na szczęście te dodatkowe segmenty nie muszą być scalone, więc unikamy problemu nieskończonej rekurencji przy scalaniu. Oczywiście wystąpią dodatkowe koszty obliczeniowe, wynikające z potrzeby generowania większej ilości segmentów niż te używane do wyświetlania terenu. 
 
 ## Przechowywanie segmentów
