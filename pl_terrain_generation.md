@@ -32,7 +32,7 @@ Zasadniczo skrypty programu nie korzystają bezpośrednio z mapy wejściowej, a 
 ([HydraulicErosionTerrainFeatureApplier](https://github.com/defacto2k15/PwMgr/tree/master/Assets/Heightmaps/Ring1/TerrainDescription/FeatureGenerating/HydraulicErosionTerrainFeatureApplier.cs))
 ![rys-13-hydraulic](assets/terrain/rys-13-hydraulic.png)
 
-Dodatkowo kształt terenu wzbogacam o umieszczanie na nich wygładzeń reprezentujących rzeczywiście istniejące ścieżki ([RoadEngravingTerrainFeatureApplier](https://github.com/defacto2k15/PwMgr/tree/master/Assets/Heightmaps/Ring1/TerrainDescription/FeatureGenerating/RoadEngravingTerrainFeatureApplier.cs)).
+Dodatkowo kształt terenu wzbogacam o umieszczanie na nich wygładzeń reprezentujących rzeczywiście istniejące ścieżki ([RoadEngravingTerrainFeatureApplier](https://github.com/defacto2k15/PwMgr/tree/master/Assets/Roads/TerrainFeature/RoadEngravingTerrainFeatureApplier.cs)).
 
 Jako parametr wejściowy algorytm otrzymuje niezmodyfikowaną lub wstępnie zmodyfikowaną teksturę segmentu.
 Z wyjątkiem algorytmu diament-kwadrat, algorytmy wykonywane są na GPU, z wykorzystaniem odpowiednich shaderów.  
